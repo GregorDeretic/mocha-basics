@@ -113,8 +113,8 @@ describe('Is object debited properly', function() {
     it('If debited amount is 20 or over, 1 should be added', function() {
         // arrange...
         var cut = new BankAccount(50);
-        var expectedResult = 29;
-        var debitAmount = 20;
+        var expectedResult = 28;
+        var debitAmount = 21;
 
         // act...
         var actualResult = cut.debit(debitAmount);
