@@ -1,5 +1,5 @@
 {
-  "name": "sample3",
+  "name": "mocha",
   "version": "1.0.0",
   "description": "simple web app using express",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "mocha": "^8.2.1",
     "rx": "^4.1.0",
     "rxjs": "^6.6.3"
   },
@@ -19,5 +20,16 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "requirejs": "^2.3.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GregorDeretic/mocha-basics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GregorDeretic/mocha-basics/issues"
+  },
+  "homepage": "https://github.com/GregorDeretic/mocha-basics#readme"
 }
