@@ -9,8 +9,14 @@ class BankAccount
 
     debit( amt )
     {
-        this.balance -= amt;
-
+        if (amt > this.balance) {
+            console.log("Insufficient funds to withdraw that amount.");
+        } else if (amt >= 20) {
+            amt += 1;
+            this.balance -= amt;
+        } else {
+            this.balance -= amt;
+        }
         return this.balance;
     }
 
@@ -47,8 +53,8 @@ describe('Is object debited properly', function() {
     it('Balance should be reduced', function() {
         // arrange...
         var cut = new BankAccount(50);
-        var expectedResult = 20;
-        var debitAmount = 30;
+        var expectedResult = 40;
+        var debitAmount = 10;
 
         // act...
         var actualResult = cut.debit(debitAmount);
@@ -58,3 +64,68 @@ describe('Is object debited properly', function() {
         assert.strictEqual(cut.queryBalance(), expectedResult);
     });
 });
+
+describe('Is object credited properly', function() {
+    it('Balance should be increased', function() {
+        // arrange...
+        var cut = new BankAccount(50);
+        var expectedResult = 80;
+        var creditAmount = 30;
+
+        // act...
+        var actualResult = cut.credit(creditAmount);
+
+        // assert...
+        assert.strictEqual(actualResult, expectedResult);
+        assert.strictEqual(cut.queryBalance(), expectedResult);
+    });
+});
+
+describe('Is object debited properly', function() {
+    it('Balance should NOT be decreased if amount is larger than balance', function() {
+        // arrange...
+        var cut = new BankAccount(50);
+        var expectedResult = 50;
+        var debitAmount = 60;
+
+        // act...
+        var actualResult = cut.debit(debitAmount);
+
+        // assert...
+        assert.strictEqual(actualResult, expectedResult);
+        assert.strictEqual(cut.queryBalance(), expectedResult);
+    });
+});
+
+describe('Is object debited properly', function() {
+    it('Balance should NOT be decreased if amount is larger than balance', function() {
+        // arrange...
+        var cut = new BankAccount(50);
+        var expectedResult = 50;
+        var debitAmount = 60;
+
+        // act...
+        var actualResult = cut.debit(debitAmount);
+
+        // assert...
+        assert.strictEqual(actualResult, expectedResult);
+        assert.strictEqual(cut.queryBalance(), expectedResult);
+    });
+});
+
+describe('Is object debited properly', function() {
+    it('If debited amount is 20 or over, 1 should be added', function() {
+        // arrange...
+        var cut = new BankAccount(50);
+        var expectedResult = 29;
+        var debitAmount = 20;
+
+        // act...
+        var actualResult = cut.debit(debitAmount);
+
+        // assert...
+        assert.strictEqual(actualResult, expectedResult);
+        assert.strictEqual(cut.queryBalance(), expectedResult);
+    });
+});
+
