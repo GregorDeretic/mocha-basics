@@ -9,14 +9,10 @@ class BankAccount
 
     debit( amt )
     {
-        if (amt > this.balance) {
-            console.log("Insufficient funds to withdraw that amount.");
-        } else if (amt >= 20) {
+        if (amt > 20)
             amt += 1;
+        if (this.balance - amt >= 0)
             this.balance -= amt;
-        } else {
-            this.balance -= amt;
-        }
         return this.balance;
     }
 
