@@ -1,3 +1,5 @@
+var expect = require('chai').expect;
+var should = require('chai').should();
 var assert = require("assert");
 
 
@@ -41,8 +43,9 @@ describe('Is object constructed properly', function() {
         var actualResult = cut.queryBalance();
 
         // assert...
-        assert.strictEqual(actualResult, expectedResult);
-        assert.strictEqual(cut.queryBalance(), expectedResult);
+        // assert.strictEqual(actualResult, expectedResult);
+        // assert.strictEqual(cut.queryBalance(), expectedResult);
+        expect(actualResult).to.equal(expectedResult);
     });
   });
 
@@ -57,8 +60,9 @@ describe('Is object debited properly', function() {
         var actualResult = cut.debit(debitAmount);
 
         // assert...
-        assert.strictEqual(actualResult, expectedResult);
-        assert.strictEqual(cut.queryBalance(), expectedResult);
+        // assert.strictEqual(actualResult, expectedResult);
+        // assert.strictEqual(cut.queryBalance(), expectedResult);
+        actualResult.should.equal(expectedResult);
     });
 });
 
